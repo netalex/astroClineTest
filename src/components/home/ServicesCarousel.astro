@@ -1,0 +1,135 @@
+---
+// src/components/home/ServicesCarousel.astro
+import ServiceCard from './ServiceCard.astro';
+
+// Placeholder data - replace with actual data source later
+const services = [
+  {
+    title: 'Terapia Individuale',
+    description: 'Percorsi personalizzati per affrontare difficoltà personali, ansia, stress e promuovere il benessere.',
+    imageUrl: 'https://placehold.co/600x400/e0f2f7/333333?text=Terapia+Individuale',
+    serviceUrl: '/services/therapy'
+  },
+  {
+    title: 'Terapia di Coppia',
+    description: 'Supporto per migliorare la comunicazione, risolvere conflitti e rafforzare il legame nella relazione.',
+    imageUrl: 'https://placehold.co/600x400/e0f2f7/333333?text=Terapia+Coppia',
+    serviceUrl: '/services/couples'
+  },
+  {
+    title: 'Terapia Familiare',
+    description: 'Interventi mirati per migliorare le dinamiche familiari e risolvere problematiche relazionali.',
+    imageUrl: 'https://placehold.co/600x400/e0f2f7/333333?text=Terapia+Familiare',
+    serviceUrl: '/services/family'
+  },
+  {
+    title: 'Trattamento Ansia',
+    description: 'Strategie efficaci per gestire l\'ansia, gli attacchi di panico e le fobie specifiche.',
+    imageUrl: 'https://placehold.co/600x400/e0f2f7/333333?text=Trattamento+Ansia',
+    serviceUrl: '/services/anxiety'
+  },
+  {
+    title: 'Trattamento Depressione',
+    description: 'Supporto per superare la depressione, ritrovare la motivazione e migliorare l\'umore.',
+    imageUrl: 'https://placehold.co/600x400/e0f2f7/333333?text=Trattamento+Depressione',
+    serviceUrl: '/services/depression'
+  },
+  {
+    title: 'Consulenza Psicologica',
+    description: 'Spazio di ascolto e supporto per affrontare momenti difficili o prendere decisioni importanti.',
+    imageUrl: 'https://placehold.co/600x400/e0f2f7/333333?text=Consulenza',
+    serviceUrl: '/services/consultation'
+  },
+];
+---
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-serif font-bold text-gray-800">I Miei Servizi</h2>
+      <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+        Offro un'ampia gamma di servizi psicologici personalizzati per rispondere alle tue esigenze specifiche.
+      </p>
+    </div>
+
+    <!-- Swiper -->
+    <div class="swiper services-swiper relative pb-12">
+      <div class="swiper-wrapper">
+        {services.map(service => (
+          <div class="swiper-slide h-auto px-2"> {/* Add h-auto for equal height cards */}
+            <ServiceCard
+              title={service.title}
+              description={service.description}
+              imageUrl={service.imageUrl}
+              serviceUrl={service.serviceUrl}
+            />
+          </div>
+        ))}
+      </div>
+      <!-- Add Pagination -->
+      <div class="swiper-pagination absolute bottom-0 left-1/2 transform -translate-x-1/2"></div>
+
+      <!-- Add Navigation -->
+      <div class="swiper-button-prev absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-full text-teal-600 hover:text-teal-800 transition cursor-pointer hidden md:block">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+      </div>
+      <div class="swiper-button-next absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-full text-teal-600 hover:text-teal-800 transition cursor-pointer hidden md:block">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style is:global>
+  /* Import Swiper styles */
+  @import 'swiper/swiper-bundle.css';
+
+  .services-swiper .swiper-pagination-bullet {
+    background-color: #9ca3af; /* gray-400 */
+    opacity: 1;
+  }
+  .services-swiper .swiper-pagination-bullet-active {
+    background-color: #0d9488; /* teal-600 */
+  }
+  .services-swiper .swiper-slide {
+    height: auto; /* Ensure slides adapt height */
+  }
+</style>
+
+<script>
+  // Import Swiper JS
+  import Swiper from 'swiper/bundle';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const swiper = new Swiper('.services-swiper', {
+      // Optional parameters
+      loop: false,
+      slidesPerView: 1,
+      spaceBetween: 16,
+      // Responsive breakpoints
+      breakpoints: {
+        // when window width is >= 768px
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 24
+        },
+        // when window width is >= 1024px
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 32
+        }
+      },
+
+      // If we need pagination
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  });
+</script>

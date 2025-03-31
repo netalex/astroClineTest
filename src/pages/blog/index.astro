@@ -1,0 +1,65 @@
+---
+// src/pages/blog/index.astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+// Import blog components later
+// import BlogPostCard from '../../components/blog/BlogPostCard.astro';
+// import Pagination from '../../components/blog/Pagination.astro';
+// import TagCloud from '../../components/blog/TagCloud.astro';
+// import SearchBar from '../../components/blog/SearchBar.astro';
+
+const pageTitle = "Blog - Dr. Nome Cognome";
+const pageDescription = "Articoli, riflessioni e consigli sul benessere psicologico.";
+
+// Placeholder for fetching posts
+const posts = [];
+const tags = [];
+---
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <div class="container mx-auto px-4 py-12">
+    <header class="mb-12 text-center">
+      <h1 class="text-4xl font-serif font-bold text-gray-800">Blog</h1>
+      <p class="mt-4 text-xl text-gray-600">{pageDescription}</p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+      {/* Main Content Area */}
+      <div class="md:col-span-8 lg:col-span-9">
+        {/* Search Bar Placeholder */}
+        <div class="mb-8 p-4 bg-gray-100 rounded-md">
+          <p>Search Bar Placeholder</p>
+        </div>
+
+        {/* Blog Post List Placeholder */}
+        {posts.length === 0 ? (
+          <p class="text-center text-gray-500">Nessun post trovato.</p>
+        ) : (
+          <div class="space-y-8">
+            {/* Map through posts here */}
+            <p>Blog Post List Placeholder</p>
+          </div>
+        )}
+
+        {/* Pagination Placeholder */}
+        <div class="mt-12 text-center">
+          <p>Pagination Placeholder</p>
+        </div>
+      </div>
+
+      {/* Sidebar */}
+      <aside class="md:col-span-4 lg:col-span-3 space-y-8">
+        {/* Tag Cloud Placeholder */}
+        <div class="p-4 bg-gray-50 rounded-md">
+          <h3 class="text-lg font-semibold mb-4">Categorie</h3>
+          {tags.length === 0 ? (
+            <p class="text-sm text-gray-500">Nessuna categoria.</p>
+          ) : (
+             <p>Tag Cloud Placeholder</p>
+          )}
+        </div>
+
+        {/* Newsletter Signup (Optional in sidebar) */}
+        {/* Consider adding NewsletterForm component here if desired */}
+      </aside>
+    </div>
+  </div>
+</BaseLayout>

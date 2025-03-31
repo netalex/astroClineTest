@@ -1,0 +1,65 @@
+---
+// src/pages/about.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageTitle = "Chi Sono - Dr. Nome Cognome";
+const pageDescription = "Scopri di più sulla mia formazione, il mio approccio terapeutico e la mia filosofia.";
+---
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <div class="container mx-auto px-4 py-12">
+    <header class="mb-12 text-center">
+      <h1 class="text-4xl font-serif font-bold text-gray-800">Chi Sono</h1>
+      <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">{pageDescription}</p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+      {/* Profile Image */}
+      <div class="md:col-span-1 flex justify-center">
+        <div class="w-64 h-80 bg-gray-300 rounded-lg shadow-md flex items-center justify-center">
+           <span class="text-gray-500">Profile Image Placeholder</span>
+           {/* Replace with: <img src="/images/about/profile-large.jpg" alt="Dr. Nome Cognome" class="rounded-lg shadow-md w-full h-full object-cover"/> */}
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div class="md:col-span-2 prose prose-lg prose-teal max-w-none">
+        <h2>La Mia Formazione</h2>
+        <p>
+          Placeholder text: Descrivi qui il tuo percorso formativo, le lauree, le specializzazioni, i master e i corsi di aggiornamento rilevanti. Metti in evidenza le competenze acquisite.
+        </p>
+        <ul>
+          <li>Laurea in Psicologia Clinica presso [Università]</li>
+          <li>Specializzazione in Psicoterapia [Orientamento] presso [Scuola di Specializzazione]</li>
+          <li>Iscrizione all'Albo degli Psicologi [Regione] N. [Numero]</li>
+          <li>Master in [Area Specifica, es. Psicologia dell'Età Evolutiva]</li>
+        </ul>
+
+        <h2>Il Mio Approccio</h2>
+        <p>
+          Placeholder text: Spiega il tuo approccio terapeutico (es. cognitivo-comportamentale, psicodinamico, sistemico-relazionale, integrato). Descrivi la tua filosofia di lavoro, i valori che guidano la tua pratica e come personalizzi l'intervento sulle esigenze del paziente.
+        </p>
+        <blockquote>
+          "Credo fermamente nel potenziale di crescita e cambiamento insito in ogni individuo. Il mio obiettivo è creare uno spazio sicuro e non giudicante dove poter esplorare le proprie difficoltà e scoprire nuove risorse."
+        </blockquote>
+
+        <h2>Aree di Intervento</h2>
+        <p>
+          Placeholder text: Elenca le principali aree di cui ti occupi, come ansia, depressione, disturbi alimentari, problemi relazionali, crescita personale, supporto alla genitorialità, etc.
+        </p>
+
+        <h2>Perché Scegliermi</h2>
+        <p>
+          Placeholder text: Metti in luce i tuoi punti di forza, cosa ti distingue, l'esperienza maturata, l'empatia, la professionalità, l'aggiornamento continuo.
+        </p>
+      </div>
+    </div>
+
+     {/* Optional: CTA Section */}
+     <div class="mt-16 text-center">
+        <a href="/contact" class="inline-block px-8 py-3 bg-teal-600 text-white rounded-md hover:bg-teal-700 transition shadow-md">
+            Contattami per una consulenza
+        </a>
+     </div>
+
+  </div>
+</BaseLayout>

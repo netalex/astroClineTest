@@ -1,16 +1,27 @@
 ---
+// src/pages/index.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+// Import landing page components
+import Hero from '../components/home/Hero.astro';
+import ServicesCarousel from '../components/home/ServicesCarousel.astro';
+import About from '../components/home/About.astro';
+import Testimonials from '../components/home/Testimonials.astro';
+import NewsletterForm from '../components/global/NewsletterForm.astro';
+import ContactCTA from '../components/home/ContactCTA.astro';
 
+const pageTitle = "Dr. Nome Cognome - Psicologo e Psicoterapeuta";
+const pageDescription = "Studio di psicologia e psicoterapia. Percorsi personalizzati per il benessere psicologico.";
 ---
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <Hero />
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+  <ServicesCarousel />
+
+  <About />
+
+  <Testimonials />
+
+  <NewsletterForm />
+
+  <ContactCTA />
+</BaseLayout>

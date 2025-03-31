@@ -1,0 +1,24 @@
+---
+// src/components/home/ServiceCard.astro
+interface Props {
+  title: string;
+  description: string;
+  imageUrl: string;
+  serviceUrl: string;
+}
+
+const { title, description, imageUrl, serviceUrl } = Astro.props;
+---
+<div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition h-full flex flex-col">
+  <img src={imageUrl} alt={title} class="w-full h-48 object-cover" />
+  <div class="p-6 flex flex-col flex-grow">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">{title}</h3>
+    <p class="text-gray-600 mb-4 flex-grow">{description}</p>
+    <a href={serviceUrl} class="text-teal-600 font-medium hover:text-teal-700 flex items-center self-start mt-auto">
+      Scopri di più
+      <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+      </svg>
+    </a>
+  </div>
+</div>

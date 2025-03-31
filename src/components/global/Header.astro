@@ -1,0 +1,99 @@
+---
+// src/components/global/Header.astro
+const services = [
+  { name: 'Terapia Individuale', slug: 'therapy' },
+  { name: 'Terapia di Coppia', slug: 'couples' },
+  { name: 'Terapia Familiare', slug: 'family' },
+  { name: 'Trattamento Ansia', slug: 'anxiety' },
+  { name: 'Trattamento Depressione', slug: 'depression' },
+  { name: 'Consulenza Psicologica', slug: 'consultation' },
+];
+---
+<header class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50">
+  <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+    <a href="/" class="flex items-center">
+      <!-- Placeholder for Logo -->
+      <div class="w-10 h-10 bg-teal-200 rounded-full mr-3"></div>
+      <span class="text-xl font-serif text-teal-800">Dr. Nome Cognome</span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center space-x-6">
+      <a href="/" class="text-gray-700 hover:text-teal-600 transition">Home</a>
+      <a href="/about" class="text-gray-700 hover:text-teal-600 transition">Chi sono</a>
+
+      <!-- Dropdown per Servizi -->
+      <div class="relative group">
+        <button class="text-gray-700 hover:text-teal-600 transition flex items-center">
+          Servizi
+          <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+          <div class="py-2 px-3">
+            {services.map(service => (
+              <a href={`/services/${service.slug}`} class="block py-2 text-gray-700 hover:text-teal-600">{service.name}</a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <a href="/blog" class="text-gray-700 hover:text-teal-600 transition">Blog</a>
+      <a href="/contact" class="text-gray-700 hover:text-teal-600 transition">Contatti</a>
+      <a href="/contact#booking" class="ml-4 px-4 py-2 bg-teal-600 text-white rounded-md hover:bg-teal-700 transition">Prenota</a>
+    </nav>
+
+    <!-- Mobile menu button -->
+    <button class="md:hidden text-gray-700" id="mobile-menu-button">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <div class="md:hidden hidden bg-white border-t border-gray-200" id="mobile-menu">
+    <nav class="flex flex-col px-4 py-2 space-y-2">
+      <a href="/" class="text-gray-700 hover:text-teal-600 transition py-1">Home</a>
+      <a href="/about" class="text-gray-700 hover:text-teal-600 transition py-1">Chi sono</a>
+      <div>
+        <button class="w-full text-left text-gray-700 hover:text-teal-600 transition py-1 flex justify-between items-center" id="mobile-services-button">
+          Servizi
+          <svg class="w-4 h-4 transform transition-transform duration-200" id="mobile-services-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="pl-4 mt-1 hidden" id="mobile-services-menu">
+          {services.map(service => (
+            <a href={`/services/${service.slug}`} class="block py-1 text-gray-600 hover:text-teal-600">{service.name}</a>
+          ))}
+        </div>
+      </div>
+      <a href="/blog" class="text-gray-700 hover:text-teal-600 transition py-1">Blog</a>
+      <a href="/contact" class="text-gray-700 hover:text-teal-600 transition py-1">Contatti</a>
+      <a href="/contact#booking" class="mt-2 px-4 py-2 bg-teal-600 text-white text-center rounded-md hover:bg-teal-700 transition">Prenota</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileServicesButton = document.getElementById('mobile-services-button');
+  const mobileServicesMenu = document.getElementById('mobile-services-menu');
+  const mobileServicesArrow = document.getElementById('mobile-services-arrow');
+
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+
+  if (mobileServicesButton && mobileServicesMenu && mobileServicesArrow) {
+    mobileServicesButton.addEventListener('click', () => {
+      mobileServicesMenu.classList.toggle('hidden');
+      mobileServicesArrow.classList.toggle('rotate-180');
+    });
+  }
+</script>

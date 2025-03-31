@@ -1,0 +1,43 @@
+---
+// src/components/home/About.astro
+---
+<section class="py-20 bg-gray-50">
+  <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+    <div class="md:w-2/5 mb-10 md:mb-0 flex justify-center">
+      <img
+        src="https://placehold.co/400x500/d1d5db/333333?text=Dr.+Nome+Cognome"
+        alt="Dr. Nome Cognome"
+        width="400"
+        height="500"
+        class="rounded-lg shadow-lg max-w-full h-auto w-80 h-96 object-cover"
+      />
+    </div>
+    <div class="md:w-3/5 md:pl-12 text-center md:text-left">
+      <h2 class="text-3xl font-serif font-bold text-gray-800 mb-6">Chi Sono</h2>
+      <p class="text-lg text-gray-600 mb-4">
+        Sono il Dr. Nome Cognome, psicologo e psicoterapeuta con oltre 10 anni di esperienza nel supportare persone di tutte le età a superare sfide emotive e psicologiche.
+      </p>
+      <p class="text-lg text-gray-600 mb-6">
+        Il mio approccio integra diverse metodologie terapeutiche, adattate alle esigenze specifiche di ogni persona. Credo fermamente che ognuno abbia le risorse interiori per affrontare le difficoltà, e il mio ruolo è quello di guidarti a scoprirle e utilizzarle.
+      </p>
+      <!-- Optional: Add credentials or key points -->
+      <div class="flex flex-wrap gap-4 justify-center md:justify-start mb-6">
+        <div class="flex items-center bg-white p-3 rounded-md shadow-sm">
+          <div class="w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center mr-2">
+            <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <span class="text-sm text-gray-700">Approccio Empatico</span>
+        </div>
+        <div class="flex items-center bg-white p-3 rounded-md shadow-sm">
+          <div class="w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center mr-2">
+             <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+          </div>
+          <span class="text-sm text-gray-700">Terapie Personalizzate</span>
+        </div>
+      </div>
+      <a href="/about" class="inline-block px-6 py-3 bg-teal-600 text-white rounded-md hover:bg-teal-700 transition shadow-md">
+        Scopri di più su di me
+      </a>
+    </div>
+  </div>
+</section>
